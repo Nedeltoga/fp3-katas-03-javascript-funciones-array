@@ -165,8 +165,49 @@ export function doesWordExist(words4,search){
     return result 
 }
 
+//Cuenta repeticiones
 
-export function howManyTimes(){}
-export function greatestProduct(){}
+let words5 = [
+    'machine',
+    'matter',
+    'subset',
+    'trouble',
+    'starting',
+    'matter',
+    'eating',
+    'matter',
+    'truth',
+    'disobedience',
+    'matter'
+  ];
 
+export function howManyTimes(words5, search2){
+    if (words5.length === 0) {
+        return undefined
+    }
+    let times = 0
+    for (let i=0; i < words5.length; i++) {
+       if (search2 === words5[i]) 
+       times++
+    }
+    return times
+}
+
+//Bonus
+
+
+export function greatestProduct(matrix){
+    let result = 0
+
+    for (let i=0; i < matrix.length; i++) {
+       for (let z= 0; z < matrix[i].length; z++) {
+        let horizontal = matrix[i].length > z+3 ?  matrix[i][z] * matrix[i][z+1] * matrix[i][z+2] * matrix[i][z+3] : 0
+        let vertical = matrix.length > i+3 ? matrix[i][z] * matrix[i+1][z] * matrix[i+2][z] * matrix[i+3][z] : 0
+        let diagonal = matrix[i].length > z +3 && matrix.length > i +3 ? matrix[i][z] * matrix[i+1][z+1] * matrix[i+2][z+2] * matrix[i+3][z+3] :0
+        result = Math.max(horizontal,vertical,diagonal,result)
+       }
+
+    }
+    return result
+}
 
